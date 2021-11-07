@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tugas Implementasi Interface</title>
+</head>
+<body>
+<h2>Tugas 3411191061 Susan Sutialisna</h2>
+<form name="myForm" action="#" onsubmit="return validateForm()"method="POST">
+<input type="text" id="user" name="username" placeholder="Username"> *Username 3-15 Karakter<br><br>
+<input type="password" name="password" id="pass" placeholder="Password"> *Min 4 Digit<br><br>
+<input type="password" name="repeat" id="repeat" placeholder="Ulangi Password"> * Ulangi Password Yang Sama<br><br>
+<input type="text" name="email" id="email" placeholder="Email"> *Format Email Harus Benar<br><br>
+<input na pattern="" size="12" type="text" name="telpon" id="telp" placeholder="Nomor Telpon"> *10 - 12 Digit<br><br>
+<input type="text" name="alamatrumah" id="alamatrumah" placeholder="Alamat"> *Alamat Tidak Boleh kosong<br><br>
+<input type="submit" value="Submit" onclick="ValidateEmail(document.myForm.email)">
+</form>
+<script type="text/javascript">
+function validateForm(){
+var user = document.myForm.user.value;
+var pass = document.myForm.pass.value;
+var repeat = document.myForm.repeat.value;
+var telp = document.myForm.telp.value;
+var alamat = document.myForm.alamatrumah.value;
+if((user.length < 3 ) || (user.length > 15)){
+	alert("Username 3-15 Karakter");
+return false;
+}
+if(pass.length < 4){
+	alert("Password Min 4 Digit");
+return false;
+}
+if (pass != repeat) {
+	alert("Ulangi Password harus sama dengan Password");
+return false;
+}
+if((telp.length < 10 ) || (telp.length > 12)){
+	alert("No Telpon 10-12 Digit");
+return false;
+}
+if(alamat == ""){
+alert("Alamat tidak boleh kosong");
+return false;
+}
+return true;
+}
+function ValidateEmail(inputText)
+{
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(inputText.value.match(mailformat))
+{
+document.myForm.email.focus();
+return true;
+}
+else
+{
+alert("Alamat email tidak valid!");
+document.myForm.email.focus();
+return false;
+}
+}
+</script>
+</body>
+</html>
